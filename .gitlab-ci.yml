@@ -1,0 +1,11 @@
+stages:
+  - sonar
+test:
+  stage: sonar
+  tags:
+    - javascript
+  script:
+    - npm install
+    - npm run test:unit
+    - sonar-scanner -Dproject.settings=./sonar-project.properties -Dsonar.projectKey=$CI_PROJECT_NAME:$CI_COMMIT_BRANCH -Dsonar.projectName=$CI_PROJECT_NAME:$CI_COMMIT_BRANCH
+  when: always
