@@ -21,7 +21,7 @@
                             :row-style="{ height: '48px' }"
                             class="tabelStyle"
                         >
-                            <el-table-column show-overflow-tooltip prop="name" label="名称" />
+                            <el-table-column show-overflow-tooltip prop="name" label="房间号" />
                             <el-table-column show-overflow-tooltip prop="electric_quantity" label="截止本月电量(°)" />
                             <el-table-column show-overflow-tooltip prop="used_electricity" label="本月已用电量(°)" />
                             <el-table-column show-overflow-tooltip prop="unit_price" label="单价(元)" />
@@ -66,11 +66,27 @@
 
         <el-dialog title="结算" :visible.sync="dialogTableVisible">
             <el-table :data="tableInfo" show-summary>
-              <el-table-column property="name_" label="名称"/>
-              <el-table-column property="month_calculation" label="截至当月电量(°)"/>
-              <el-table-column property="electric_quantity" label="本月已用电量(°)"/>
-              <el-table-column property="unit_price" label="单价(元)"/>
-              <el-table-column property="amount" label="当月电费(元)"/>
+              <el-table-column property="name_" label="房间号"/>
+              <el-table-column property="month_calculation" label="截至当月电量(°)">
+					<template slot-scope="scope">
+						{{scope.row.month_calculation}}°
+					</template>
+			   </el-table-column>
+              <el-table-column property="electric_quantity" label="本月已用电量(°)">
+			  		<template slot-scope="scope">
+						{{scope.row.electric_quantity}}°
+					</template>
+			   </el-table-column>
+              <el-table-column property="unit_price" label="单价(元)">
+			  		<template slot-scope="scope">
+						{{scope.row.unit_price}}
+					</template>
+			   </el-table-column>
+              <el-table-column property="amount" label="当月电费(元)">
+			  		<template slot-scope="scope">
+						{{scope.row.amount}}元
+					</template>
+			   </el-table-column>
             </el-table>
           </el-dialog>
     </div>
