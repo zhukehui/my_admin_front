@@ -87,6 +87,16 @@
 						{{scope.row.amount}}元
 					</template>
 			   </el-table-column>
+			   <el-table-column property="average_used_electricity" label="近6个月平均使用电量(°)">
+			  		<template slot-scope="scope">
+						{{scope.row.average_used_electricity}}
+					</template>
+			   </el-table-column>
+			   <el-table-column property="average_amount" label="近6个月平均电费(元)">
+			  		<template slot-scope="scope">
+						{{scope.row.average_amount}}
+					</template>
+			   </el-table-column>
             </el-table>
           </el-dialog>
     </div>
